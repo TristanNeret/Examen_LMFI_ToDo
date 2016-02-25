@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6">
+                <span class="label label-primary">Your To Do List :</span><button (click)="clickNewToDo()" class="btn btn-info">Click to add To Do</button>
+            </div>
+            <div class="col-md-6" style="text-align:right;" [hidden]="!todos.length">
+                Sort by :
+                <div class="btn-group">
+                    <button class="btn btn-info" [class.order-selected]="order === 'date'" (click)="sortByDate()">Date</button>
+                    <button class="btn btn-info" [class.order-selected]="order === 'name'" (click)="sortByName()">Name</button>
+                    <button class="btn btn-info" [class.order-selected]="order === 'status'" (click)="sortByStatus()">Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="panel-body col-md-6">
+            <ul class="list-group">
+                <li *ngFor="#todo of todos; #i = index" class="list-group-item"
+                [class.todo]="todo.status === 'TO DO'"
+                [class.in-progress]="todo.status === 'IN PROGRESS'"
+                [class.done]="todo.status === 'DONE'" (click)="onSelect(todo)">
+                <h4 class="list-group-item-heading">{{todo.description}}</h4>
+                <p class="list-group-item-text"
+                [class.todo-status]="todo.status === 'TO DO'"
+                [class.in-progress-status]="todo.status === 'IN PROGRESS'"
+                [class.done-status]="todo.status === 'DONE'">{{todo.status}}</p>
+            </li>
+        </ul>
+        <div id="divNoToDo" [hidden]="todos.length">You have no To Do</div>
+    </div>
+    <detail-to-do class="col-md-6" [todo]="selectedToDo"></detail-to-do>
+</div>
+
+<div class="panel-footer">
+    Copyright 2016 - To Do
+</div>
+</div>

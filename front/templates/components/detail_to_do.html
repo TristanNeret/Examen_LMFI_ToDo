@@ -1,0 +1,24 @@
+<div *ngIf="todo" class="panel panel-info">
+    <div class="panel-heading">To Do details :</div>
+    <div class="panel-body">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="todoField">Description</td>
+                    <td>{{todo.description}}</td>
+                </tr>
+                <tr>
+                    <td class="todoField">Status</td>
+                    <td>{{todo.status}}</td>
+                </tr>
+                <tr>
+                    <td class="todoField">Creation date</td>
+                    <td>{{todo.creationDate | unicodeToDate | date : 'ddMMyy HHmmss'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="editToDo()" class="btn btn-primary">Edit To Do</button>
+
+    </div>
+</div>

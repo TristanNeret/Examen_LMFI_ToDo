@@ -1,0 +1,9 @@
+front/node_modules
+back/node_modules
+*/dist
+*/.idea
+*/*.iml
+*/.DS_Store
+*/*.log
+*/coverage
+*/content2.txt
